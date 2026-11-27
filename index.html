@@ -11,9 +11,15 @@
         }
         
         * { box-sizing: border-box; user-select: none; font-family: "DFKai-SB", "BiauKai", "標楷體", "KaiTi", serif; }
-        body { background-color: var(--bg-dark); background-image: radial-gradient(circle at 50% 30%, #2a1b0e 0%, #050302 90%); color: var(--text-main); margin: 0; padding: 0; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        body { 
+            background-color: var(--bg-dark); 
+            background-image: radial-gradient(circle at 50% 30%, #2a1b0e 0%, #050302 90%); 
+            color: var(--text-main); 
+            margin: 0; padding: 0; height: 100vh; 
+            display: flex; justify-content: center; align-items: center; overflow: hidden; 
+        }
         
-        /* 宣政殿主背景（統一為 .png） */
+        /* 🌟 1. 宣政殿主背景（已對齊 .png） */
         .game-stage { 
             width: 1150px; 
             height: 680px; 
@@ -25,14 +31,16 @@
             overflow: hidden; 
             padding: 20px; 
             z-index: 1; 
+            box-shadow: 0 30px 70px rgba(0,0,0,1);
         }
         
-        /* 頂部 HUD 五星狀態欄底條 */
+        /* 🌟 2. 頂部 HUD 五星狀態欄底條 */
         .top-hud { 
             height: 85px; 
             background-image: url('images/bg_hud_top.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            background-color: transparent;
             padding: 8px 35px; 
             display: flex; justify-content: space-between; align-items: center; 
             margin: 0 auto 10px; 
@@ -43,11 +51,19 @@
         .hud-center { text-align: center; width: 140px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .game-title { font-size: 1.5rem; color: #ffd700; letter-spacing: 8px; font-weight: bold; text-shadow: 3px 3px 4px #000; margin: 0; }
         
-        .hud-box { flex: 1; background: rgba(20, 12, 6, 0.7); padding: 4px 8px; border: 1px solid #a68442; border-radius: 6px; min-width: 95px; display: flex; flex-direction: column; justify-content: center; position: relative;}
+        .hud-box { 
+            flex: 1; 
+            background: rgba(20, 12, 6, 0.65); 
+            padding: 4px 8px; 
+            border: 1px solid rgba(166, 132, 66, 0.5); 
+            border-radius: 6px; 
+            min-width: 95px; 
+            display: flex; flex-direction: column; justify-content: center; position: relative;
+        }
         .hud-label { font-size: 0.75rem; margin-bottom: 3px; display: flex; justify-content: space-between; color: #eeddc5; font-weight: bold; text-shadow: 1px 1px 1px #000; align-items: center; }
         
-        /* 頂部狀態小圖標 */
-        .hud-icon { width: 16px; height: 16px; background-size: contain; background-repeat: no-repeat; display: inline-block; margin-right: 4px; vertical-align: middle; }
+        /* 🌟 3. 六大 HUD 專屬去背小圖標 */
+        .hud-icon { width: 18px; height: 18px; background-size: contain; background-repeat: no-repeat; background-position: center; display: inline-block; margin-right: 4px; vertical-align: middle; }
         .icon-politics { background-image: url('images/icon_hud_politics.png'); }
         .icon-economy { background-image: url('images/icon_hud_economy.png'); }
         .icon-popularity { background-image: url('images/icon_hud_popularity.png'); }
@@ -59,61 +75,64 @@
         
         .round-tag { 
             background-image: url('images/icon_hud_round.png');
-            background-size: contain;
+            background-size: 22px 22px;
             background-repeat: no-repeat;
             background-position: left center;
             padding: 5px 12px 5px 28px; 
-            font-size: 0.9rem; color: #ffd700; font-weight: bold; white-space: nowrap; margin-left: 10px; text-shadow: 1px 1px 2px #000;
+            font-size: 0.95rem; color: #ffd700; font-weight: bold; white-space: nowrap; margin-left: 10px; text-shadow: 2px 2px 3px #000;
         }
         
         .court-meeting-container { display: flex; width: 100%; height: calc(100% - 95px); position: relative; z-index: 10; }
         .emperor-side { width: 420px; height: 100%; position: relative; padding-right: 10px; }
         
-        /* 天子下旨宣紙底框 */
+        /* 🌟 4. 天子下旨宣紙底框 */
         .emperor-requirement-box { 
             position: relative; 
-            margin-top: 10px; 
-            width: 100%; 
+            margin-top: 25px; 
+            width: 400px; 
             height: 200px; 
             background-image: url('images/bg_scroll_emperor.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
-            padding: 30px 25px 18px; 
+            background-color: transparent;
+            border: none; outline: none; box-shadow: none;
+            padding: 25px 30px 18px; 
             z-index: 40; 
         }
         
-        /* 雙龍戲珠圓框與天子肖像（統一為 .png） */
+        /* 🌟 5. 雙龍戲珠金雕圓框 + 天子肖像雙層融合（已統一為 .png） */
         .emperor-portrait { 
             width: 120px; 
             height: 120px; 
-            margin: -65px auto 5px; 
+            margin: -75px auto 5px; 
             display: block; 
             z-index: 45; 
             position: relative; 
             border-radius: 50%;
+            border: none; box-shadow: none;
             background-image: url('images/frame_emperor_portrait.png'), url('images/avatar_emperor_default.png');
             background-position: center center, center center;
-            background-size: 100% 100%, 90% 90%; 
+            background-size: 100% 100%, 88% 88%; 
             background-repeat: no-repeat, no-repeat;
         }
         
-        .req-title { font-size: 1.15rem; font-weight: bold; color: #4a1a05; margin-bottom: 6px; border-bottom: 1px solid rgba(74,26,5,0.2); padding-bottom: 4px; text-align: center; }
-        .req-text { font-size: 1rem; line-height: 1.5; color: #2e1802; font-weight: bold; text-align: justify; }
+        .req-title { font-size: 1.15rem; font-weight: bold; color: #4a1a05; margin-bottom: 6px; border-bottom: 1px solid rgba(74,26,5,0.25); padding-bottom: 4px; text-align: center; }
+        .req-text { font-size: 0.98rem; line-height: 1.5; color: #2e1802; font-weight: bold; text-align: justify; }
         
         .chronicle-container-left { position: absolute; bottom: 35px; left: 35px; width: 180px; height: 45px; z-index: 100; }
         
-        /* 起居注按鈕三態 */
+        /* 🌟 6. 「起居注」小掛軸按鈕三態 */
         .chronicle-anchor { 
             background-image: url('images/btn_chronicle_normal.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-color: transparent;
-            color: #1f1105; font-weight: bold; border: none; cursor: pointer; font-size: 0.9rem; width: 100%; height: 100%; text-align: center; display: block; line-height: 45px; 
+            color: #1f1105; font-weight: bold; border: none; cursor: pointer; font-size: 0.95rem; width: 100%; height: 100%; text-align: center; display: block; line-height: 45px; 
         }
         .chronicle-anchor:hover { background-image: url('images/btn_chronicle_hover.png'); }
         .chronicle-anchor:active { background-image: url('images/btn_chronicle_click.png'); }
 
-        .chronicle-popup-panel { width: 390px; height: 230px; background: rgba(29, 20, 12, 0.95); border: 3px solid #a68442; padding: 15px 20px; box-shadow: 0 20px 40px rgba(0,0,0,1); display: none; flex-direction: column; position: absolute; bottom: 55px; left: 0px; z-index: 110; border-radius: 8px;}
+        .chronicle-popup-panel { width: 390px; height: 230px; background: rgba(29, 20, 12, 0.96); border: 2px solid #a68442; padding: 15px 20px; box-shadow: 0 20px 40px rgba(0,0,0,1); display: none; flex-direction: column; position: absolute; bottom: 55px; left: 0px; z-index: 110; border-radius: 8px;}
         .chronicle-popup-panel.show { display: flex; animation: flashPop 0.15s ease-out; }
         .chronicle-title { font-size: 1.1rem; font-weight: bold; color: #fff0a3; margin-bottom: 8px; border-bottom: 1px solid #4a3116; padding-bottom: 4px; }
         .chronicle-content { font-size: 0.9rem; line-height: 1.7; color: #e5dec9; overflow-y: auto; flex: 1; text-align: justify; white-space: pre-line; }
@@ -123,91 +142,101 @@
         
         .advisor-slot { width: 200px; height: 260px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; position: relative; }
         
-        /* 大臣卡牌框架預設、懸停與選中 */
+        /* 🌟 7. 大臣卡牌外框（已微調底部間距，避免文字與花紋重疊） */
         .advisor-card { 
             width: 100%; height: 100%; 
             background-image: url('images/card_advisor_frame_normal.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-color: transparent;
-            border: none; padding: 12px 12px 45px 12px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; align-items: center; transition: all 0.2s ease; z-index: 15; position: relative; 
+            border: none; 
+            padding: 18px 18px 62px 18px; 
+            cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; align-items: center; transition: transform 0.2s ease; z-index: 15; position: relative; 
         }
         .advisor-card:hover { 
             background-image: url('images/card_advisor_frame_hover.png');
             transform: translateY(-5px); 
         }
         
-        /* 卡牌內部翡翠襯底（統一為 .png） */
-        .card-jade-frame { width: 100%; flex: 1; border-radius: 4px; background-image: url('images/card_jade_slot.png'); background-size: 100% 100%; position: relative; overflow: hidden; }
+        /* 🌟 8. 卡牌內部翡翠襯底 + 大臣立繪 */
+        .card-jade-frame { 
+            width: 100%; flex: 1; border-radius: 4px; 
+            background-color: #1a2e21;
+            background-size: cover, 100% 100%; 
+            background-position: center top, center center;
+            background-repeat: no-repeat, no-repeat;
+            position: relative; overflow: hidden; 
+        }
         
         .advisor-slot.selected .advisor-card { 
             background-image: url('images/card_advisor_frame_hover.png');
             transform: translateY(-12px); 
-            filter: drop-shadow(0 0 15px #ffd700);
         }
         
-        .advisor-label { position: absolute; bottom: 12px; text-align: center; width: 85%; z-index: 30; }
-        .label-role { font-size: 0.75rem; color: #c5b49e; }
-        .label-name { font-size: 1.05rem; color: #fff0a3; font-weight: bold; letter-spacing: 2px; }
+        /* 🌟 名牌位置上移至 22px，精準避開底部金框花紋 */
+        .advisor-label { position: absolute; bottom: 22px; text-align: center; width: 80%; z-index: 30; }
+        .label-role { font-size: 0.75rem; color: #c5b49e; text-shadow: 1px 1px 2px #000; }
+        .label-name { font-size: 1.05rem; color: #fff0a3; font-weight: bold; letter-spacing: 2px; text-shadow: 1px 1px 2px #000; }
         
-        /* 大臣奏摺展開底圖 */
+        /* 🌟 9. 大臣奏摺展開底圖 */
         .proposal-scroll-popup { 
-            position: absolute; top: 10px; left: 15px; right: 0; height: 220px; 
+            position: absolute; top: 10px; left: 10px; width: 700px; height: 220px; 
             background-image: url('images/bg_scroll_proposal.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-color: transparent;
-            color: #221100; padding: 25px 45px; display: none; flex-direction: column; justify-content: space-between; z-index: 150; border: none; outline: none;
+            color: #221100; padding: 28px 55px 22px; display: none; flex-direction: column; justify-content: space-between; z-index: 150; border: none; outline: none;
         }
         .proposal-scroll-popup.show { display: flex; animation: scrollOpen 0.2s ease-out forwards; }
-        .proposal-text { font-style: italic; font-weight: bold; font-size: 1.05rem; line-height: 1.5; color: #2b1704; text-align: justify; padding-right: 60px;}
+        .proposal-text { font-style: italic; font-weight: bold; font-size: 1.05rem; line-height: 1.5; color: #2b1704; text-align: justify; padding-right: 90px; }
         
-        /* 「批准/御批」按鈕三態 */
+        /* 🌟 10. 「批准/御批」按鈕三態 */
         .action-confirm-btn { 
             background-image: url('images/btn_approve_normal.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-color: transparent;
-            color: #fff; border: none; height: 60px; font-size: 1.2rem; font-weight: bold; letter-spacing: 10px; cursor: pointer; width: 100%; padding-left: 10px; margin-top: 5px; 
+            color: #fff; border: none; width: 300px; height: 60px; font-size: 1.2rem; font-weight: bold; letter-spacing: 8px; cursor: pointer; margin: 5px auto 0; display: block; text-shadow: 1px 1px 2px #000;
         }
         .action-confirm-btn:hover { background-image: url('images/btn_approve_hover.png'); }
         .action-confirm-btn:active { background-image: url('images/btn_approve_click.png'); }
         
-        /* 傳國玉璽去背印章（全小寫檔名） */
+        /* 🌟 11. 傳國玉璽去背印章 */
         .seal-stamp { 
-            position: absolute; top: 15px; right: 45px; width: 120px; height: 120px; 
+            position: absolute; top: 15px; right: 50px; width: 130px; height: 130px; 
             background-image: url('images/seal_emperor_approval.png');
             background-size: contain;
             background-repeat: no-repeat;
             transform: rotate(-12deg); opacity: 0; pointer-events: none; z-index: 2; border: none;
         }
         
-        .transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(8, 4, 2, 0.9); z-index: 600; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease-out; }
+        .transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(8, 4, 2, 0.85); z-index: 600; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease-out; }
         .transition-overlay.show { display: flex; opacity: 1; }
         
-        /* 退朝報告書底圖 */
+        /* 🌟 12. 退朝報告書底圖 */
         .report-board { 
             width: 660px; height: 500px;
             background-image: url('images/bg_report_board.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-color: transparent;
-            padding: 45px 50px; color: #22150c; text-align: center; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.1, 0.8, 0.3, 1); border: none;
+            padding: 55px 60px; color: #22150c; text-align: center; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.1, 0.8, 0.3, 1); border: none;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
         .transition-overlay.show .report-board { transform: scale(1); }
-        .report-header { font-size: 1.6rem; font-weight: bold; color: #851c1c; border-bottom: 2px dashed #a68442; padding-bottom: 8px; margin-bottom: 15px; letter-spacing: 4px; }
-        .report-result-text { font-size: 1.15rem; line-height: 1.6; text-align: justify; font-weight: bold; margin-bottom: 20px; color: #332012; text-indent: 2em; height: 160px; overflow-y: auto;}
-        .stat-changes-grid { display: flex; justify-content: space-around; background: rgba(166, 132, 66, 0.1); padding: 8px 5px; border: 1px solid #c9b080; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; border-radius: 4px;}
+        .report-header { font-size: 1.6rem; font-weight: bold; color: #851c1c; border-bottom: 2px dashed #a68442; padding-bottom: 8px; letter-spacing: 4px; }
+        .report-result-text { font-size: 1.15rem; line-height: 1.6; text-align: justify; font-weight: bold; color: #332012; text-indent: 2em; max-height: 160px; overflow-y: auto; }
+        .stat-changes-grid { display: flex; justify-content: space-around; background: rgba(166, 132, 66, 0.15); padding: 10px 5px; border: 1px solid #c9b080; flex-wrap: wrap; gap: 10px; border-radius: 4px; }
         .change-item { font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; gap: 4px; }
         .change-item.plus { color: #b91c1c; } .change-item.minus { color: #16a34a; } 
         
-        /* 「百官退朝」按鈕三態 */
+        /* 🌟 13. 「百官退朝」按鈕三態 */
         .next-turn-btn { 
             background-image: url('images/btn_next_turn_normal.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-color: transparent;
-            color: #fffdf0; border: none; height: 60px; width: 250px; font-size: 1.2rem; font-weight: bold; letter-spacing: 6px; cursor: pointer; padding-left: 6px; 
+            color: #fffdf0; border: none; height: 60px; width: 250px; font-size: 1.2rem; font-weight: bold; letter-spacing: 6px; cursor: pointer; margin: 0 auto; display: block; text-shadow: 1px 1px 2px #000;
         }
         .next-turn-btn:hover { background-image: url('images/btn_next_turn_hover.png'); }
         .next-turn-btn:active { background-image: url('images/btn_next_turn_click.png'); }
@@ -218,7 +247,7 @@
         @keyframes sealPlunge { 0% { transform: rotate(-12deg) scale(2); opacity: 0; } 100% { transform: rotate(-12deg) scale(0.8); opacity: 0.9; } }
         @keyframes flashPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         
-        /* 加載畫面大底圖（統一為 .png） */
+        /* 🌟 14. 加載畫面大底圖（已對齊 .png） */
         .loading-screen { 
             position: absolute; top:0; left:0; width:100%; height:100%; 
             background-image: url('images/bg_loading_screen.png');
@@ -226,12 +255,12 @@
             background-repeat: no-repeat;
             z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; 
         }
-        .loading-title { font-size: 3rem; font-weight: 900; color: #fff0a3; letter-spacing: 10px; text-shadow: 3px 3px 0 #000; margin-bottom: 30px; }
-        .loading-bar-container { width: 380px; height: 12px; background: #17100a; border: 1px solid #a68442; padding: 2px; margin-bottom: 15px; border-radius: 6px;}
-        .loading-bar-fill { width: 0%; height: 100%; background: linear-gradient(to right, #a68442, #ffd700); border-radius: 4px;}
-        .loading-text { font-size: 0.95rem; color: #a68442; font-weight: bold; text-shadow: 1px 1px 1px #000;}
+        .loading-title { font-size: 3.2rem; font-weight: 900; color: #fff0a3; letter-spacing: 12px; text-shadow: 3px 3px 6px #000, 0 0 15px #a68442; margin-bottom: 35px; }
+        .loading-bar-container { width: 380px; height: 12px; background: #17100a; border: 1px solid #a68442; padding: 2px; margin-bottom: 15px; border-radius: 6px; }
+        .loading-bar-fill { width: 0%; height: 100%; background: linear-gradient(to right, #a68442, #ffd700); border-radius: 4px; }
+        .loading-text { font-size: 1rem; color: #ebd197; font-weight: bold; text-shadow: 2px 2px 3px #000; }
         
-        /* 「登基臨朝」大按鈕三態 */
+        /* 🌟 15. 「登基臨朝」大按鈕三態 */
         .start-btn { 
             display: none; 
             background-image: url('images/btn_game_start_normal.png');
@@ -243,10 +272,10 @@
         .start-btn:hover { background-image: url('images/btn_game_start_hover.png'); }
         .start-btn:active { background-image: url('images/btn_game_start_click.png'); }
 
-        .ending-title { font-size: 2.2rem; font-weight: bold; color: #ffd700; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; }
-        .ending-body { font-size: 1.3rem; line-height: 1.8; color: #fcf8ee; margin-bottom: 40px; max-width: 600px; text-align: justify; }
+        .ending-title { font-size: 2.4rem; font-weight: bold; color: #ffd700; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; }
+        .ending-body { font-size: 1.3rem; line-height: 1.8; color: #fcf8ee; margin-bottom: 40px; max-width: 600px; text-align: justify; text-shadow: 1px 1px 2px #000; }
         
-        /* 「重登大寶」按鈕三態 */
+        /* 🌟 16. 「重登大寶」按鈕三態 */
         .restart-btn { 
             background-image: url('images/btn_restart_normal.png');
             background-size: 100% 100%;
@@ -284,15 +313,15 @@
         <div class="top-hud">
             <div class="hud-side" onclick="event.stopPropagation()">
                 <div class="hud-box">
-                    <div class="hud-label"><span><i class="hud-icon icon-politics"></i>🏛️ 政治</span> <span id="v-politics">50</span></div>
+                    <div class="hud-label"><span><i class="hud-icon icon-politics"></i>政治</span> <span id="v-politics">50</span></div>
                     <div class="hud-bar"><div id="b-politics" class="hud-fill"></div></div>
                 </div>
                 <div class="hud-box">
-                    <div class="hud-label"><span><i class="hud-icon icon-economy"></i>💰 經濟</span> <span id="v-economy">50</span></div>
+                    <div class="hud-label"><span><i class="hud-icon icon-economy"></i>經濟</span> <span id="v-economy">50</span></div>
                     <div class="hud-bar"><div id="b-economy" class="hud-fill"></div></div>
                 </div>
                 <div class="hud-box">
-                    <div class="hud-label"><span><i class="hud-icon icon-popularity"></i>❤️ 民心</span> <span id="v-popularity">50</span></div>
+                    <div class="hud-label"><span><i class="hud-icon icon-popularity"></i>民心</span> <span id="v-popularity">50</span></div>
                     <div class="hud-bar"><div id="b-popularity" class="hud-fill"></div></div>
                 </div>
             </div>
@@ -301,11 +330,11 @@
             </div>
             <div class="hud-side" style="justify-content: flex-end;" onclick="event.stopPropagation()">
                 <div class="hud-box">
-                    <div class="hud-label"><span><i class="hud-icon icon-defense"></i>⚔️ 國防</span> <span id="v-defense">50</span></div>
+                    <div class="hud-label"><span><i class="hud-icon icon-defense"></i>國防</span> <span id="v-defense">50</span></div>
                     <div class="hud-bar"><div id="b-defense" class="hud-fill"></div></div>
                 </div>
                 <div class="hud-box">
-                    <div class="hud-label"><span><i class="hud-icon icon-culture"></i>📜 文化</span> <span id="v-culture">50</span></div>
+                    <div class="hud-label"><span><i class="hud-icon icon-culture"></i>文化</span> <span id="v-culture">50</span></div>
                     <div class="hud-bar"><div id="b-culture" class="hud-fill"></div></div>
                 </div>
                 <div class="round-tag" id="round-indicator">大華元年</div>
@@ -372,6 +401,7 @@
             }
         ];
 
+        // 🌟 雙層背景對接：上層為大臣立繪，下層為翡翠玉石襯底（全數對齊 .png）
         const officials = {
             civil: { role: "內閣首輔", name: "張居正", bgUrl: "images/card_advisor_avatar_civil.png" },
             military: { role: "大將軍", name: "岳飛", bgUrl: "images/card_advisor_avatar_military.png" },
@@ -479,7 +509,7 @@
                 slot.className = "advisor-slot";
                 slot.innerHTML = `
                     <div class="advisor-card">
-                        <div class="card-jade-frame" style="background-image: url('${config.bgUrl}');"></div>
+                        <div class="card-jade-frame" style="background-image: url('${config.bgUrl}'), url('images/card_jade_slot.png');"></div>
                         <div class="advisor-label">
                             <div class="label-role">${config.role}</div>
                             <div class="label-name">${config.name}</div>
@@ -518,6 +548,9 @@
                 const mask = document.getElementById("flash-mask");
                 mask.classList.add("active");
                 setTimeout(() => mask.classList.remove("active"), 50);
+
+                const logBox = document.getElementById("chronicle-log");
+                logBox.innerText += `\n\n【${getImperialYear(round)}】准奏${currentOfficerName}之策：${selectedSummary}`;
 
                 setTimeout(() => {
                     showTurnReport();
